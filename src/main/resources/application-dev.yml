@@ -1,0 +1,86 @@
+server:
+  port: 9091
+
+logging:
+  level:
+    ROOT: info
+
+## 数据源配置
+spring:
+# REDIS (RedisProperties)
+# Redis数据库索引（默认为0）
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: 1
+        max-idle: 8
+        min-idle: 0
+    timeout: 0
+
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+  resources:
+    static-locations: classpath:/static/
+
+  data:
+    mongodb:
+        host: localhost
+        port: 27017
+        database: mytest
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    druid:
+      url: jdbc:mysql://localhost:3306/mytest?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+      username: root
+      password: root
+      initial-size: 10
+      max-active: 100
+      min-idle: 10
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 1000
+          merge-sql: true
+        wall:
+          config:
+            multi-statement-allow: true
+
+# Mybatis配置
+mybatis:
+  mapperLocations: classpath:mapping/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+#pagehelper分页插件
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+
+demo:
+  code: 33
+  name: 11
+
+ip: 33
+port: 0090
+
