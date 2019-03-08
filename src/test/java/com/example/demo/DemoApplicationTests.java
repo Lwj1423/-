@@ -3,6 +3,7 @@ package com.example.demo;
 import com.example.demo.entity.User;
 import com.example.demo.entity.Usr;
 import com.example.demo.repository.UsrRepository;
+import com.example.demo.service.EmailService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,6 +33,14 @@ public class DemoApplicationTests implements Serializable {
 
     @Autowired
     private RedisTemplate redisTemplate;
+
+    @Autowired
+    private EmailService emailService;
+
+    @Test
+    public void sendSimpleMail() throws Exception {
+        emailService.sendSimpleEmail("315852911@qq.com","this is simple mail"," hello LWJ");
+    }
 
     @Test
     public void contextLoads() {
