@@ -1,13 +1,31 @@
 server:
   port: 9091
+  #设置项目访问名称
+  servlet:
+    context-path: /crud
 
 logging:
   level:
     ROOT: info
 
+#邮件发送人
+mail:
+  fromMail:
+    addr: 625063703@qq.com
+
 ## 数据源配置
 spring:
-# REDIS (RedisProperties)
+  #设置国际化转化
+  messages:
+    basename: i18n.login
+
+  mail:
+    host: smtp.qq.com
+    username: 625063703@qq.com
+    password: wjxqgfhlfvkkbdjg
+    default-encoding: UTF-8
+    port: 587
+  # REDIS (RedisProperties)
 # Redis数据库索引（默认为0）
   redis:
     host: 127.0.0.1
