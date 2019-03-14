@@ -12,7 +12,12 @@ public class ExampleController {
 
     @RequestMapping("/")
     public String helloWorld() {
-        return "index";
+        return "login";
+    }
+
+    @RequestMapping("/test")
+    public String test() {
+        return "test";
     }
 
     @RequestMapping("/exercise/1")
