@@ -15,6 +15,7 @@ mail:
 
 ## 数据源配置
 spring:
+
   #设置国际化转化
   messages:
     basename: i18n.login
@@ -37,7 +38,7 @@ spring:
         max-idle: 8
         min-idle: 0
     timeout: 0
-
+  #禁用templates缓存
   thymeleaf:
     cache: false
     prefix: classpath:/templates/
