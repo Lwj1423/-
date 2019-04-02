@@ -82,6 +82,10 @@ spring:
           config:
             multi-statement-allow: true
 
+  #设置添加员工页面的日期提交格式
+  mvc:
+    date-format: yyyy-MM-dd
+
 # Mybatis配置
 mybatis:
   mapperLocations: classpath:mapping/*Mapper.xml

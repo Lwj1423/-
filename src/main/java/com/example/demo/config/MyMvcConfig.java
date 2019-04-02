@@ -30,9 +30,16 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 //请求重定向到main.html页面
                 registry.addViewController("/main.html").setViewName("dashboard");
             }
-
-
+            //注册拦截器
+            @Override
+            public void addInterceptors(InterceptorRegistry registry) {
+                // super.addInterceptors(registry);
+                //静态资源不用管，springboot已做好
+//                registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
+//                        .excludePathPatterns("/user/login","/main.html","/login.html","/crud/","/","/emp/*","/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg", "/**/*.jpeg");
+            }
         };
+
         return config;
     }
 
