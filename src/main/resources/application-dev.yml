@@ -44,6 +44,12 @@ spring:
     prefix: classpath:/templates/
   resources:
     static-locations: classpath:/static/
+  jpa:
+    hibernate:
+      #     更新或者创建数据表结构
+      ddl-auto: update
+    #    控制台显示SQL
+    show-sql: true
 
   data:
     mongodb:
@@ -54,6 +60,10 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.jdbc.Driver
+    #配置启动执行sql
+#    schema:
+#      - classpath:sql/department.sql
+#      - classpath:sql/employee.sql
     druid:
       url: jdbc:mysql://localhost:3306/mytest?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
       username: root
@@ -81,6 +91,8 @@ spring:
         wall:
           config:
             multi-statement-allow: true
+    initialization-mode: always
+
 
   #设置添加员工页面的日期提交格式
   mvc:

@@ -43,15 +43,15 @@ public class MyServerConfig {
     }
 
     //配置嵌入式的Servlet容器
-    @Bean
-    public WebServerFactoryCustomizer<ConfigurableWebServerFactory> webServerFactoryCustomizer(){
-        return new WebServerFactoryCustomizer<ConfigurableWebServerFactory>() {
-            //定制嵌入式的Servlet容器相关的规则
-            @Override
-            public void customize(ConfigurableWebServerFactory factory) {
-                factory.setPort(8083);
-            }
-        };
-    }
+//    @Bean
+//    public WebServerFactoryCustomizer<ConfigurableWebServerFactory> webServerFactoryCustomizer(){
+//        return new WebServerFactoryCustomizer<ConfigurableWebServerFactory>() {
+//            //定制嵌入式的Servlet容器相关的规则
+//            @Override
+//            public void customize(ConfigurableWebServerFactory factory) {
+//                factory.setPort(8083);
+//            }
+//        };
+//    }
 
 }
