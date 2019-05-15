@@ -15,12 +15,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.Serializable;
 import java.util.List;
 
-
+@SuppressWarnings("unchecked")
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class DemoApplicationTests implements Serializable {
@@ -33,6 +34,10 @@ public class DemoApplicationTests implements Serializable {
 
     @Autowired
     private RedisTemplate redisTemplate;
+
+    //自定义redisTemple
+    @Autowired
+    RedisTemplate<Object, User> userRedisTemplate;
 
     @Autowired
     private EmailService emailService;
@@ -133,10 +138,10 @@ public class DemoApplicationTests implements Serializable {
 
     @Test
     public void testRedis() throws Exception{
-        User user = new User("用户2", 40);
-        redisTemplate.opsForValue().set("用户2",user);
+        User user = new User(1,"123","11121","用户3", 40);
+        userRedisTemplate.opsForValue().set("用户3",user);
         // 保存对象
-        User user2= (User) redisTemplate.opsForValue().get("用户2");
+        User user2= userRedisTemplate.opsForValue().get("用户3");
         this.logger.info(String.valueOf(user2.getAge()));
         this.logger.info(String.valueOf(user2.getUserName()));
     }

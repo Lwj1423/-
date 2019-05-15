@@ -17,15 +17,31 @@ public class User  implements Serializable {
 
     private String userName;
 
+    private Integer registerTime;
+
     private String password;
 
     private String phone;
 
     private Integer age;
 
-    public User(String userName, Integer age) {
+    public User(String userName, Integer registerTime){
+        this.userName = userName;
+        this.registerTime = registerTime;
+    }
+
+
+
+    public User(){
+
+    }
+
+    public User(Integer userId,String password,String phone,String userName, Integer age) {
         this.userName = userName;
         this.age = age;
+        this.userId = userId;
+        this.password = password;
+        this.phone = phone;
     }
 
 
